@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  mainnet-client:
+    hostname: mainnet-client
+    container_name: mainnet-client
+    build:
+      context: ../../
+      dockerfile: ./client/Dockerfile
+      args:
+        GENESIS_PATH: "./mainnet/genesis.json"
+        EXPOSED_PORTS: "9545 9546 40303"
+        BOOTNODES: ${BOOTNODES}
+        CHAIN_ID: ${CHAIN_ID}
+    ports:
+      - 9545:8545
+      - 9546:8546
+      - 40303:30303
+    volumes:
+      - mainnet-client-data:/root/.ghu:rw
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "10"
+
+volumes:
+  mainnet-client-data:

@@ -87,4 +87,4 @@ $RECYCLE.BIN/
 .env
 
 # Bootnode
-*.key
+bootnode/keys
