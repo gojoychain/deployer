@@ -1,25 +1,26 @@
 #!/bin/sh
 
-MESSAGE="$ ./backup.sh docker-volume-name /path/to/backup/dir"
-VOLUME_NAME=$1
-DEST_PATH=$2
+MESSAGE="$ ./backup.sh [mainnet | testnet]"
+MAINNET_CONTAINER="mainnet_mainnet-client-data"
+MAINNET_BACKUP_DEST="/root/.ghu/mainnet/geth"
+TESTNET_CONTAINER="testnet_testnet-client-data"
+TESTNET_BACKUP_DEST="/root/.ghu/testnet/geth"
 
-if [ -z "${VOLUME_NAME}" ]
-then
-    echo "volume name not defined"
+# Set network config
+if [ $1 = "mainnet" ]; then
+    VOLUME_NAME=$MAINNET_CONTAINER
+    DEST_PATH=$MAINNET_BACKUP_DEST
+elif [ $1 = "testnet" ]; then
+    VOLUME_NAME=$TESTNET_CONTAINER
+    DEST_PATH=$TESTNET_BACKUP_DEST
+else
+    echo "invalid network"
     echo ${MESSAGE}
     exit 2
 fi
 
-if [ -z "${DEST_PATH}" ]
-then
-    echo "destination not defined"
-    echo ${MESSAGE}
-    exit 2
-fi
-
-echo "Backing up volume ${VOLUME_NAME}"
-echo "Writing to ${DEST_PATH}"
+echo "Backing up volume: ${VOLUME_NAME}"
+echo "Writing to: ${DEST_PATH}"
 
 # Get mountpoint path
 docker volume inspect ${VOLUME_NAME} > volume.txt
@@ -38,4 +39,4 @@ sudo rm -rf "${DEST_PATH}/lightchaindata"
 sudo cp -r "${MOUNTPOINT}/geth/chaindata" ${DEST_PATH}
 sudo cp -r "${MOUNTPOINT}/geth/lightchaindata" ${DEST_PATH}
 
-echo "Finished backing up volume ${VOLUME_NAME}"
+echo "Finished backing up volume: ${VOLUME_NAME}"
