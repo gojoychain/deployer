@@ -1,4 +1,4 @@
-FROM ghuchain/ghu-bootnode:v1.0.0
+FROM ghuchain/ghu-bootnode:v1.8.23a
 
 # Copy bootkey
 RUN mkdir /root/.ghu

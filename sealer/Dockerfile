@@ -1,4 +1,4 @@
-FROM ghuchain/ghu-geth:v1.0.0
+FROM ghuchain/ghu-geth:v1.8.23a
 
 # Copy genesis.json
 ARG GENESIS_PATH
