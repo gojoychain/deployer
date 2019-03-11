@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MESSAGE="$ ./backup.sh [mainnet | testnet]"
+MESSAGE="$ ./backup.sh [mainnet|testnet]"
 MAINNET_CONTAINER="mainnet_mainnet-client-data"
 MAINNET_BACKUP_DEST="/root/.ghu/mainnet/geth"
 TESTNET_CONTAINER="testnet_testnet-client-data"

@@ -1,25 +1,26 @@
 #!/bin/sh
 
-MESSAGE="$ ./restore.sh docker-volume-name /path/to/backup/dir"
-VOLUME_NAME=$1
-ORIGIN_PATH=$2
+MESSAGE="$ ./restore.sh [mainnet|testnet]"
+MAINNET_CONTAINER="mainnet_mainnet-client-data"
+MAINNET_BACKUP_PATH="/root/.ghu/mainnet/geth"
+TESTNET_CONTAINER="testnet_testnet-client-data"
+TESTNET_BACKUP_PATH="/root/.ghu/testnet/geth"
 
-if [ -z "${VOLUME_NAME}" ]
-then
-    echo "volume name not defined"
+# Set network config
+if [ $1 = "mainnet" ]; then
+    VOLUME_NAME=$MAINNET_CONTAINER
+    ORIGIN_PATH=$MAINNET_BACKUP_PATH
+elif [ $1 = "testnet" ]; then
+    VOLUME_NAME=$TESTNET_CONTAINER
+    ORIGIN_PATH=$TESTNET_BACKUP_PATH
+else
+    echo "invalid network"
     echo ${MESSAGE}
     exit 2
 fi
 
-if [ -z "${ORIGIN_PATH}" ]
-then
-    echo "backup dir not defined"
-    echo ${MESSAGE}
-    exit 2
-fi
-
-echo "Restoring volume ${VOLUME_NAME}"
-echo "Writing from ${ORIGIN_PATH}"
+echo "Restoring volume: ${VOLUME_NAME}"
+echo "Writing from: ${ORIGIN_PATH}"
 
 # Get mountpoint path
 docker volume inspect ${VOLUME_NAME} > volume.txt
