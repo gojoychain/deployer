@@ -26,7 +26,7 @@ ENV ETHERBASE_ADDRESS=$ETHERBASE_ADDRESS
 ENV ADDRESS=$ADDRESS
 
 # Run start script
-COPY ./sealer/start-node-docker.sh /usr/local/bin
+COPY ./node-sealer/start-node-docker.sh /usr/local/bin
 ENTRYPOINT ["start-node-docker.sh"]
 
 # Expose ports
