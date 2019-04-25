@@ -15,5 +15,5 @@ geth \
 --bootnodes "$BOOTNODES" \
 --etherbase "$ACCOUNT_ADDRESS" \
 --unlock "$ACCOUNT_ADDRESS" \
---password "$ACCOUNT_PW_PATH" \
+--password "$PW_FILE" \
 >> "$LOG_DIR/geth.log" &
