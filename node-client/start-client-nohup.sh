@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# Create logs dir
-if [ ! -d "$LOGS_DIR" ]; then
-    echo "Creating logs dir"
-    mkdir -p "$LOGS_DIR"
-fi
-
-# Start geth
 nohup \
 geth \
 --datadir "$DATA_DIR" \
@@ -25,4 +18,4 @@ geth \
 --wsapi db,debug,eth,net,web3 \
 --verbosity 4 \
 --bootnodes "$BOOTNODES"
->> "$LOGS_DIR/geth.log" &
+>> "$LOG_DIR/geth.log" &
