@@ -1,2 +1,7 @@
 #!/bin/sh
-../../script/init.sh ../genesis.json .accountpw .accountpk ../static-nodes.json
+../../script/init.sh \
+$HOME/.ghu/testnet/ \
+../genesis.json \
+.accountpw \
+.accountpk \
+../static-nodes.json
