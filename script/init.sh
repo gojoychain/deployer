@@ -2,10 +2,16 @@
 # Initializes a new node
 # Inject env args before calling script
 
-# Make dir if needed
+# Make data dir if needed
 if [ ! -d "$DATA_DIR" ]; then
-    echo "Creating datadir"
+    echo "Creating data dir"
     mkdir -p "$DATA_DIR"
+fi
+
+# Make logs dir if needed
+if [ ! -d "$LOG_DIR" ]; then
+    echo "Creating log dir"
+    mkdir -p "$LOG_DIR"
 fi
 
 # Create genesis block

@@ -1,17 +1,8 @@
 #!/bin/sh
 
-LOGS_DIR=$HOME/.ghu/logs
-
-# Create logs dir
-if [ ! -d "$LOGS_DIR" ]; then
-    echo "Creating logs dir"
-    mkdir -p "$LOGS_DIR"
-fi
-
-# Start geth
 nohup \
 geth \
---datadir "$HOME/.ghu" \
+--datadir "$DATA_DIR" \
 --syncmode full \
 --networkid "$CHAIN_ID" \
 --nat=none \
@@ -25,4 +16,4 @@ geth \
 --etherbase "$ACCOUNT_ADDRESS" \
 --unlock "$ACCOUNT_ADDRESS" \
 --password "$ACCOUNT_PW_PATH" \
->> "$LOGS_DIR/geth.log" &
+>> "$LOG_DIR/geth.log" &
