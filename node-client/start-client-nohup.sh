@@ -1,7 +1,5 @@
 #!/bin/sh
 
-LOGS_DIR=$HOME/.ghu/logs
-
 # Create logs dir
 if [ ! -d "$LOGS_DIR" ]; then
     echo "Creating logs dir"
@@ -11,18 +9,20 @@ fi
 # Start geth
 nohup \
 geth \
---datadir "$HOME/.ghu" \
+--datadir "$DATA_DIR" \
 --syncmode full \
+--gcmode archive \
 --networkid "$CHAIN_ID" \
 --nat=none \
 --targetgaslimit 4700000 \
 --rpc \
---rpcaddr "127.0.0.1" \
---rpccorsdomain "127.0.0.1" \
+--rpcaddr 0.0.0.0 \
+--rpccorsdomain "*" \
+--rpcapi db,debug,eth,net,web3 \
+--ws \
+--wsaddr 0.0.0.0 \
+--wsorigins "*" \
+--wsapi db,debug,eth,net,web3 \
 --verbosity 4 \
---mine \
---bootnodes "$BOOTNODES" \
---etherbase "$ACCOUNT_ADDRESS" \
---unlock "$ACCOUNT_ADDRESS" \
---password "$ACCOUNT_PW_PATH" \
+--bootnodes "$BOOTNODES"
 >> "$LOGS_DIR/geth.log" &
