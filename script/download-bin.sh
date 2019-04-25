@@ -1,4 +1,5 @@
 #!/bin/sh
+# Linux AMD64 arch type
 
 CURRENT_VERSION=v1.8.23a
 
