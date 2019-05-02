@@ -88,3 +88,7 @@ $RECYCLE.BIN/
 
 # Bootnode
 bootnode/keys
+
+# Account
+.accountpw
+.accountpk
