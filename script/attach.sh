@@ -5,9 +5,9 @@ MESSAGE="$ ./attach.sh [mainnet/testnet]"
 NETWORK=$1
 
 if [ "$NETWORK" = "mainnet" ]; then
-    geth attach ipc:$HOME/.ghu/mainnet/geth.ipc
+    geth attach ipc:$HOME/.joy/mainnet/geth.ipc
 elif [ "$NETWORK" = "testnet" ]; then
-    geth attach ipc:$HOME/.ghu/testnet/geth.ipc
+    geth attach ipc:$HOME/.joy/testnet/geth.ipc
 else
     echo "Invalid network!"
     echo "$MESSAGE"
