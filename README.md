@@ -1,6 +1,6 @@
 # Deployer
 
-This repo contains all the necessary Docker config and scripts to run [go-ghuchain](https://github.com/ghuchain/go-chuchain) nodes.
+This repo contains all the necessary Docker config and scripts to run [go-geth](https://github.com/gojoychain/go-geth) nodes.
 
 Refer to our [docs](https://docs.gojoychain.com) for usage instructions.
 
