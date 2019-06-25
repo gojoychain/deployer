@@ -10,3 +10,4 @@ services:
     network_mode: "host"
     ports:
       - 30301
+    restart: on-failure
