@@ -8,9 +8,9 @@ echo "Downloading all geth tools..."
 wget "https://github.com/gojoychain/releases/releases/download/v$CURRENT_VERSION/all-linux-amd64-$CURRENT_VERSION.tar.gz"
 mkdir $UNZIP_DIR
 tar xvzf "all-linux-amd64-$CURRENT_VERSION.tar.gz" -C $UNZIP_DIR
-chmod 755 "$UNZIP_DIR/all-linux-amd64-$CURRENT_VERSION/bootnode"
-chmod 755 "$UNZIP_DIR/all-linux-amd64-$CURRENT_VERSION/geth"
-sudo mv "$UNZIP_DIR/all-linux-amd64-$CURRENT_VERSION/bootnode" /usr/local/bin
-sudo mv "$UNZIP_DIR/all-linux-amd64-$CURRENT_VERSION/geth" /usr/local/bin
+chmod 755 "$UNZIP_DIR/bootnode-linux-amd64"
+chmod 755 "$UNZIP_DIR/geth-linux-amd64"
+sudo mv "$UNZIP_DIR/bootnode-linux-amd64" /usr/local/bin
+sudo mv "$UNZIP_DIR/geth-linux-amd64" /usr/local/bin
 rm "all-linux-amd64-$CURRENT_VERSION.tar.gz"
 echo "Finished!"
