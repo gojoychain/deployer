@@ -6,7 +6,7 @@ UNZIP_DIR=/tmp/gojoy
 
 echo "Downloading all geth tools..."
 wget "https://github.com/gojoychain/releases/releases/download/v$CURRENT_VERSION/all-linux-amd64-$CURRENT_VERSION.tar.gz"
-mkdir $UNZIP_DIR
+mkdir -p $UNZIP_DIR
 tar xvzf "all-linux-amd64-$CURRENT_VERSION.tar.gz" -C $UNZIP_DIR
 chmod 755 "$UNZIP_DIR/bootnode-linux-amd64"
 chmod 755 "$UNZIP_DIR/geth-linux-amd64"
