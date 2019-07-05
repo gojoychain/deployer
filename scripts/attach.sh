@@ -1,0 +1,20 @@
+#!/bin/sh
+# Attaches geth console to instance
+
+MAINNET_IPC=$HOME/.gojoy/mainnet/geth.ipc
+TESTNET_IPC=$HOME/.gojoy/testnet/geth.ipc
+
+echo "Attach geth"
+echo "==========="
+echo "Enter input:"
+echo "1 for Mainnet"
+echo "2 for Testnet"
+
+read NETWORK
+if [ "$NETWORK" = "1" ]; then
+    geth attach ipc:$MAINNET_IPC
+elif [ "$NETWORK" = "2" ]; then
+    geth attach ipc:$TESTNET_IPC
+else
+    echo "Invalid network!"
+fi
