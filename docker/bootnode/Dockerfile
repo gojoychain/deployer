@@ -1,4 +1,4 @@
-FROM ghuchain/ghu-bootnode:v1.8.23a
+FROM gojoychain/go-bootnode:v1.8.23a
 
 # Copy bootkey
 RUN mkdir /root/.joy
