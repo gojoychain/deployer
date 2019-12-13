@@ -19,7 +19,7 @@ services:
       options:
         max-size: "400m"
         max-file: "10"
-    entrypoint: init.sh
+    entrypoint: /root/.joy/init.sh
     command: [
       "--syncmode=full",
       "--gcmode=archive",
