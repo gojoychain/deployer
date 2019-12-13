@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Init script for client node.
 
 echo "Node initialization started!"
