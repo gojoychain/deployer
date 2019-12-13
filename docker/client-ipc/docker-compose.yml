@@ -2,9 +2,12 @@ version: '3.7'
 
 services:
   client-testnet:
+    container_name: client-testnet
     image: gojoychain/go-geth:v1.8.23a
+    restart: always
     ports:
       - 40303:30303
+      - 40303:30303/udp
     volumes:
       - /home/ubuntu/.joy/testnet:/root/.ethereum
     logging:
