@@ -1,6 +1,8 @@
 #!/bin/bash
 # Init script for client node.
 
+echo "Node initialization started!"
+
 # Ensure DEPLOYER_DIR was set in env
 if [ -z "$DEPLOYER_DIR" ]; then
     echo "DEPLOYER_DIR not found in env file"
