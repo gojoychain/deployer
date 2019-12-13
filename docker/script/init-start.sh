@@ -1,5 +1,5 @@
 #!/bin/sh
-# Init script for Testnet Client IPC-only node.
+# Init and start script for Client IPC-only node.
 
 # Ensure DATA_DIR was set in env
 if [ -z "$DATA_DIR" ]; then

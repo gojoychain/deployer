@@ -1,18 +1,18 @@
 version: '3.7'
 
 services:
-  client-testnet:
-    container_name: client-testnet
+  client-mainnet:
+    container_name: client-mainnet
     image: gojoychain/go-geth:v1.8.23a
     restart: always
     env_file: .env
     ports:
-      - 40303:30303
-      - 40303:30303/udp
+      - 30303:30303
+      - 30303:30303/udp
     volumes:
-      - ${DATA_DIR}/testnet:/root/.ethereum
-      - ../../metadata/testnet/genesis.json:/root/.joy/genesis.json
-      - ../../metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
+      - ${DATA_DIR}/mainnet:/root/.ethereum
+      - ../../metadata/mainnet/genesis.json:/root/.joy/genesis.json
+      - ../../metadata/mainnet/static-nodes.json:/root/.joy/static-nodes.json
       - ../script/init-start.sh:/root/.joy/init-start.sh
     entrypoint: /root/.joy/init-start.sh
     logging:
