@@ -1,13 +1,5 @@
 #!/bin/sh
-# Init script for client node.
-
-echo "Node initialization started!"
-
-# Ensure DEPLOYER_DIR was set in env
-if [ -z "$DEPLOYER_DIR" ]; then
-    echo "DEPLOYER_DIR not found in env file"
-    exit 2
-fi
+# Init script for Testnet Client IPC-only node.
 
 # Create genesis block
 if [ ! -d /root/.ethereum/geth/chaindata ]; then

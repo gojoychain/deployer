@@ -10,9 +10,9 @@ services:
       - 40303:30303
       - 40303:30303/udp
     volumes:
-      - /home/ubuntu/.joy/testnet:/root/.ethereum
-      - ./genesis.json:/root/.joy/genesis.json
-      - ./static-nodes.json:/root/.joy/static-nodes.json
+      - ${DATA_DIR}/testnet:/root/.ethereum
+      - ../../metadata/testnet/genesis.json:/root/.joy/genesis.json
+      - ../../metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
       - ./run.sh:/root/.joy/run.sh
     entrypoint: /root/.joy/run.sh
     logging:
