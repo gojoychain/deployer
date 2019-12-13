@@ -14,11 +14,6 @@ services:
       - ${DEPLOYER_DIR}/metadata/testnet/genesis.json:/root/.joy/genesis.json
       - ${DEPLOYER_DIR}/metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
       - ./init.sh:/root/.joy/init.sh
-    logging:
-      driver: json-file
-      options:
-        max-size: "400m"
-        max-file: "10"
     entrypoint: /root/.joy/init.sh
     command: [
       "--syncmode=full",
@@ -30,3 +25,8 @@ services:
       "--verbosity=4",
       "--bootnodes=$BOOTNODES"
     ]
+    logging:
+      driver: json-file
+      options:
+        max-size: "400m"
+        max-file: "10"
