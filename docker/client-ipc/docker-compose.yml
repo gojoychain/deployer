@@ -16,12 +16,12 @@ services:
         max-size: "400m"
         max-file: "10"
     command: [
-      "--syncmode full",
-      "--gcmode archive",
-      "--networkid $CHAIN_ID",
-      "--nat none",
-      "--targetgaslimit 4700000",
-      "--port $LISTEN_PORT",
-      "--verbosity 4",
-      "--bootnodes $BOOTNODES"
+      "--syncmode=full",
+      "--gcmode=archive",
+      "--networkid=$CHAIN_ID",
+      "--nat=none",
+      "--targetgaslimit=4700000",
+      "--port=$LISTEN_PORT",
+      "--verbosity=4",
+      "--bootnodes=$BOOTNODES"
     ]
