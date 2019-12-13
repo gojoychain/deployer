@@ -1,6 +1,12 @@
 #!/bin/sh
 # Init script for Testnet Client IPC-only node.
 
+# Ensure DATA_DIR was set in env
+if [ -z "$DATA_DIR" ]; then
+    echo "DATA_DIR not found in env file"
+    exit 2
+fi
+
 # Create genesis block
 if [ ! -d /root/.ethereum/geth/chaindata ]; then
     echo "Init genesis block..."
