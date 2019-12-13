@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  client-testnet:
+    container_name: client-testnet
+    image: gojoychain/go-geth:v1.8.23a
+    restart: always
+    env_file: .env
+    ports:
+      - 40303:30303
+      - 40303:30303/udp
+    volumes:
+      - ${DATA_DIR}/testnet:/root/.ethereum
+      - ../../metadata/testnet/genesis.json:/root/.joy/genesis.json
+      - ../../metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
+      - ../script/init-start.sh:/root/.joy/init-start.sh
+    entrypoint: /root/.joy/init-start.sh
+    logging:
+      driver: json-file
+      options:
+        max-size: "400m"
+        max-file: "10"
