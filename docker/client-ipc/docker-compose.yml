@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  client-testnet:
+    image: gojoychain/go-geth:v1.8.23a
+    ports:
+      - 40303:30303
+    volumes:
+      - /home/ubuntu/.joy/testnet:/root/.ethereum
+    logging:
+      driver: json-file
+      options:
+        max-size: "400m"
+        max-file: "10"
+    command: [
+      "geth",
+      "--syncmode full",
+      "--gcmode archive",
+      "--networkid $CHAIN_ID",
+      "--nat none",
+      "--targetgaslimit 4700000",
+      "--port $LISTEN_PORT",
+      "--verbosity 4",
+      "--bootnodes $BOOTNODES"
+    ]
