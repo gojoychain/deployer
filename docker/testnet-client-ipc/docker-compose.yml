@@ -13,7 +13,7 @@ services:
       - /home/ubuntu/.joy/testnet:/root/.ethereum
       - ${DEPLOYER_DIR}/metadata/testnet/genesis.json:/root/.joy/genesis.json
       - ${DEPLOYER_DIR}/metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
-      - init.sh:/root/.joy/init.sh
+      - ${DEPLOYER_DIR}/docker/testnet-client-ipc/init.sh:/root/.joy/init.sh
     entrypoint: /root/.joy/init.sh
     # command: [
     #   "--syncmode=full",
