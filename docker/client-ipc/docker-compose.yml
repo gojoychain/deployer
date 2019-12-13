@@ -16,7 +16,6 @@ services:
         max-size: "400m"
         max-file: "10"
     command: [
-      "geth",
       "--syncmode full",
       "--gcmode archive",
       "--networkid $CHAIN_ID",
