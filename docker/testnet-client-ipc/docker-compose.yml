@@ -13,19 +13,8 @@ services:
       - /home/ubuntu/.joy/testnet:/root/.ethereum
       - ${DEPLOYER_DIR}/metadata/testnet/genesis.json:/root/.joy/genesis.json
       - ${DEPLOYER_DIR}/metadata/testnet/static-nodes.json:/root/.joy/static-nodes.json
-      - ${DEPLOYER_DIR}/docker/testnet-client-ipc/init.sh:/root/.joy/init.sh
+      - ./init.sh:/root/.joy/init.sh
     entrypoint: /root/.joy/init.sh
-    # command: [
-    #   "--syncmode=full",
-    #   "--gcmode=archive",
-    #   "--networkid=$CHAIN_ID",
-    #   "--nat=none",
-    #   "--targetgaslimit=4700000",
-    #   "--port=$LISTEN_PORT",
-    #   "--verbosity=4",
-    #   "--bootnodes=$BOOTNODES",
-    #   "${@:2}"
-    # ]
     logging:
       driver: json-file
       options:
