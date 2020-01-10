@@ -20,7 +20,7 @@ Please note this setup is meant for deployment on AWS EC2 Linux instances where 
 5. Create the `PK_FILE` if you are attaching an account to the node
 6. Create the `BOOTNODE_KEY` if you are running a bootnode
 7. [Setup log rotations](#setup-automatic-log-rotation)
-8. `cd deployer/script`
+8. `cd deployer/scripts`
 9. Download the required binaries by running `./download-bin.sh`
 10. Run init script and pass in your newly-created .env file: `./init.sh ~/.gojoy/mainnet/.env`
 11. Use the [system command](#start-service) to start the bootnode
